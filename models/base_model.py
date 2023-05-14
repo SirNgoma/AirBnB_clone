@@ -8,20 +8,16 @@ class BaseModel:
     """
     Base model class for all classes.
     """
-    id: str = None
-    created_at: datetime = None
-    updated_at: datetime = None
 
-    def __init__(self, **kwargs):
+    def __init__(self):
         """initialize of the class"""
-        super().__init__(**kwargs)
         self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
     def __str__(self):
         """str to repres class"""
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+        return "[{}] ({}) {}".format(type(self).__name__, self.id, self.__dict__)
 
     def save(self):
         """updates or saves datetime"""
@@ -29,8 +25,8 @@ class BaseModel:
 
     def to_dict(self):
         """TReturns a dict containing all keys, values of __dict__"""
-        dict_ = self.__dict__.copy()
-        dict_["__class__"] = self.__class__.__name__
-        dict_["created_at"] = dict_["created_at"].isoformat()
-        dict_["updated_at"] = dict_["updated_at"].isoformat()
-        return dict_
+        data = dict(self.__dict__)
+        data["__class__"] = type(self).__name__
+        data["created_at"] = self.created_at.isoformat()
+        data["updated_at"] = self.updated_at.isoformat()
+        return data
