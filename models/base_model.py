@@ -15,13 +15,13 @@ class BaseModel:
     def __init__(self, **kwargs):
         """initialize of the class"""
         super().__init__(**kwargs)
-        self.id = str9uuid.uuid4())
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
 
     def __str__(self):
         """str to repres class"""
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict_-}"
+        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """updates or saves datetime"""
@@ -31,6 +31,6 @@ class BaseModel:
         """TReturns a dict containing all keys, values of __dict__"""
         dict_ = self.__dict__.copy()
         dict_["__class__"] = self.__class__.__name__
-        dict_["craeted_at"] dict_["created_at"].isoformat()
-        dict_["updated_at"] = dict_["updated_at"].isofrmat()
+        dict_["created_at"] = dict_["created_at"].isoformat()
+        dict_["updated_at"] = dict_["updated_at"].isoformat()
         return dict_
