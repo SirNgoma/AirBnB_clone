@@ -8,6 +8,7 @@ header {
 .logo {
 	background-image: url("images/logo.png");
 	background-repeat: no-repeat;
+	background-position: left center;
 	margin-left: 20px;
 	width: 100px;
 	height: 30px

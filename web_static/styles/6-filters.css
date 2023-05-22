@@ -1,0 +1,27 @@
+.popover {
+	  display: none;
+	    position: absolute;
+	      top: 100%;
+	        left: 0;
+		  z-index: 1;
+		    list-style: none;
+		      padding: 0;
+		        margin: 0;
+			  background-color: #FAFAFA;
+			    border: 1px solid #DDDDDD;
+			      border-radius: 4px;
+		      }
+
+		      .locations:hover .popover,
+		      .amenities:hover .popover {
+			        display: block;
+			}
+
+			.locations .cities {
+				  margin-left: 20px;
+			  }
+
+			  .locations h2 {
+				    font-size: 16px;
+			    }
+
